@@ -273,14 +273,25 @@ a{
     position: relative;
 }
 
-.skillGroup .skillIcon p{
+
+.skillIcon div{
+    display: none;
+}
+
+.skillIcon:hover > div{
+    display: block;
+}
+
+.skillIcon div{
     position: absolute;
     padding:5px;
-    border-radius: 2px;
-    background: black;
+    border-radius: 20%;
+    background: rgba(0, 0, 0, 0.776);
     bottom:0;
     left:50%;
-    transform: translateX(-50%)
+    transform: translateX(-50%);
+    height: 100%;
+    min-width: 100%;
 }
 
 #skills .wideIcon
@@ -365,7 +376,6 @@ a{
 
 .projectBox .projDetails{
     display: none;
-    top:-100vh;
 }
 
 .projectSlides:hover>.projectBox:not(:hover) .projDiv {
