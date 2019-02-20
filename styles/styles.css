@@ -29,7 +29,8 @@ section{
 }
 
 h2{
-    padding:2%;
+    padding-top:10%;
+    font-size: 2em;
 }
 
 /* menu */
@@ -54,14 +55,29 @@ header a::before{
     content: "\e114";
 }
 
+nav *:hover{
+    color: rgb(51, 168, 218);
+}
+
+#navbtn:hover ~ nav, nav:hover {
+    right:30px;
+    width: 130px;
+}
+
 nav{
     position: fixed;
-    right:30px;
+    right:-30px;
     bottom:30px;
-    width: 130px;
+    width: 0px;
     background: black;
     border: 2px solid rgb(51, 168, 218);
-    transition: 0.5ms;
+    transition: 0.5s;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
 }
 
 nav div:not(:last-child) {
@@ -123,7 +139,7 @@ nav div *{
 /* skills */
 
 #skills h3{
-    font-size: 1em;
+    font-size: 1.2em;
     margin-top: 10px;
     padding: 7px;
     border-top: 1px solid rgb(51, 168, 218);
@@ -138,14 +154,51 @@ nav div *{
 #skills div div * {
     display: inline-block
 }
+
+#skills div div p {
+    font-size: 1.3em;
+}
 #skills div div img {
     max-width: 25px;
 }
 
 /* projects */
+#projects {
+    padding:0;
+    position: relative;
+}
+#projects h2{
+    padding: 5px;
+    height: 8vh;
+}
+
+.projCarousel{
+    border: 1px red solid;
+    width:100vw;
+    height: 80%;
+    /* bottom: 0px; */
+    position: absolute;
+}
+
+@media screen and (orientation:landscape){
+}
+
+@media screen and (orientation:portrait){
+}
 
 /* experience */
 
 /* education */
+#education h3 {
+    font-size: 0.em;
+    color: rgb(115, 186, 227);
+    text-shadow: 1px 1px 3px black;
+    margin-top:20px;
+}
+
+#education * {
+    text-align: center;
+    margin-bottom: 7px;
+}
 
 /* contact */
