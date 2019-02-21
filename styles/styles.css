@@ -254,18 +254,37 @@ nav div *{
 
 .project div div{
     overflow: hidden;
-    height: 36vh;
     border: 1px solid rgb(51, 168, 218);
 }
 
-.project img {
+.project div p{
+    margin-bottom: 5px;
+}
+
+.project div p:last-child{
+    text-align: right;
+}
+
+.projCarousel .project:last-child{
+    padding-right:30px;
+}
+.projCarousel .project:first-child{
+    padding-left:25px;
+}
+
+.project div div img {
     display: block;
     margin:auto;
+    height: 80vh;
 }
 
 .projCarousel:hover > .project:hover div{
     color:black;
     font-size: 1em;
+}
+
+.projCarousel:hover > .project:hover div div{
+    height: 36vh;
 }
 
 .projCarousel:hover > .project:not(:hover) div div{
@@ -294,8 +313,9 @@ nav div *{
     .projCarousel:hover>.project:hover{
         width: 75%;
     }
-    .project img{
+    .projCarousel:hover > .project:hover div div         img{
         max-width: 100%;
+        height: unset;
     }
 }
 
@@ -319,7 +339,7 @@ nav div *{
     .projCarousel:hover>.project:hover{
         height: 75%;
     }
-    .project img{
+    .projCarousel:hover > .project:hover div div img{
         max-height: 100%;
     }
 }
