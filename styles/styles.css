@@ -11,7 +11,45 @@
 }
 
 body{
+    position: relative;
+}
+
+#topline{
     /* background-color: black; */
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    z-index: 3;
+    background-image: url("../images/border-t.png");
+    background-repeat: repeat-x;
+    background-position: left top;
+    position: absolute;
+    top:0;
+    height: 50vh;
+}
+
+#bottomline{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    z-index: 3;
+    background-image: url("../images/border.png");
+    background-repeat: repeat-x;
+    background-position: left bottom;
+    position: absolute;
+    bottom:0;
+    height: 50vh;
+}
+
+#overlay{
+    pointer-events: none;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-image: url("../images/border-l.png"), url("../images/border-r.png");
+    background-repeat: repeat-y, repeat-y;
+    background-position: left top, right top;
+    z-index: 2;
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -44,7 +82,7 @@ h2{
     border: 2px solid rgb(51, 168, 218);
     bottom:10px;
     right:10px;
-    z-index: 3;
+    z-index: 5;
 }
 #navbtn img{
     width:40px;
@@ -66,6 +104,7 @@ nav *:hover{
 
 nav{
     position: fixed;
+    z-index: 2;
     right:-30px;
     bottom:30px;
     width: 0px;
@@ -126,6 +165,11 @@ nav div *{
     border: 5px solid rgb(51, 168, 218);
     margin: 10px;
 }
+
+#about h2{
+    padding:0;
+}
+
 #about * {
     max-width: 500px;
     margin:auto;
@@ -169,21 +213,125 @@ nav div *{
 }
 #projects h2{
     padding: 5px;
-    height: 8vh;
+    min-height: 50px;
+    max-height: 9vh;
+}
+
+#projects h3{
+    color:black;
+    text-shadow: 1px 1px 2px rgb(51, 168, 218);
+    transition: 0.5s;
+    /* font-size: 3vw; */
 }
 
 .projCarousel{
     border: 1px red solid;
     width:100vw;
-    height: 80%;
+    height: 84%;
     /* bottom: 0px; */
     position: absolute;
 }
 
-@media screen and (orientation:landscape){
+.project{
+    overflow: hidden;
+    padding: 2vh;
+    transition: 0.5s;
+    background-position: center;
+    position: relative;
 }
 
+.project div {
+    color: rgba(0, 0, 0, 0);
+    transition: 0.5s;
+    font-size: 0px;
+    margin-bottom: 10px;
+    /* position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%); */
+    width: 100%;
+}
+
+.project div div{
+    overflow: hidden;
+    height: 36vh;
+    border: 1px solid rgb(51, 168, 218);
+}
+
+.project img {
+    display: block;
+    margin:auto;
+}
+
+.projCarousel:hover > .project:hover div{
+    color:black;
+    font-size: 1em;
+}
+
+.projCarousel:hover > .project:not(:hover) div div{
+    display: none;
+}
+
+@media screen and (orientation:landscape){
+    #projects h3{
+        font-size: 3vw;
+    }
+    .projCarousel{
+        display: flex;
+        height: 84%;
+    }
+    .project {
+        width: 33.333333333%;
+        height: 100%;
+        display: inline-block;
+    }
+    .projCarousel:hover > .project:not(:hover){
+        width: 12.5%;
+    }
+    .projCarousel:hover > .project:not(:hover) h3{
+        transform: rotate(90deg) translateX(50%)
+    }
+    .projCarousel:hover>.project:hover{
+        width: 75%;
+    }
+    .project img{
+        max-width: 100%;
+    }
+}
+
+
 @media screen and (orientation:portrait){
+    .projCarousel{
+        height: 90%;
+    }
+    #projects h3{
+        font-size: 3vh;
+    }
+
+    .project {
+        height: 33.333333333%;
+        width: 100%;
+        display: block;
+    }
+    .projCarousel:hover > .project:not(:hover){
+        height: 12.5%;
+    }
+    .projCarousel:hover>.project:hover{
+        height: 75%;
+    }
+    .project img{
+        max-height: 100%;
+    }
+}
+#swordbuilder{
+    background-image: url("../images/sword-bg.png")
+}
+#galleass{
+    background-image: url("../images/galleas-bg.png");
+}
+
+#skillet{
+    background-image: url("../images/skillet-bg.png")
 }
 
 /* experience */
@@ -191,9 +339,9 @@ nav div *{
 /* education */
 #education h3 {
     font-size: 0.em;
-    color: rgb(115, 186, 227);
+    color: rgb(19, 56, 70);
     text-shadow: 1px 1px 3px black;
-    margin-top:20px;
+    margin-top:10px;
 }
 
 #education * {
@@ -202,3 +350,33 @@ nav div *{
 }
 
 /* contact */
+#contact {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+#contact div{
+    max-width: 500px;
+    margin:auto;
+}
+
+#contact div {
+    margin-bottom: 10px;
+}
+
+#contact div a {
+    text-decoration: none;
+}
+
+#contact div a *{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#contact div a p {
+    max-width: 195px;
+}
+
+#contact div img {
+    max-width: 40px;
+}
