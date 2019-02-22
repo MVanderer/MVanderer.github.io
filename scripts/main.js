@@ -5,8 +5,6 @@ function goToBookmark(address) {
 }
 
 
-
-
 document.addEventListener("DOMContentLoaded", (e) => {
     let projects = {
         sb: {

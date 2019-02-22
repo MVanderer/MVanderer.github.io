@@ -158,6 +158,10 @@ nav div *{
     text-align: center;
 }
 
+#about span{
+    display: inline-block;
+}
+
 #about img{
     max-width: 80%;
     max-height: 30vh;
@@ -217,19 +221,20 @@ nav div *{
     max-height: 9vh;
 }
 
-#projects h3{
-    color:black;
-    text-shadow: 1px 1px 2px rgb(51, 168, 218);
-    transition: 0.5s;
-    /* font-size: 3vw; */
-}
-
 .projCarousel{
-    border: 1px red solid;
+    /* border: 1px red solid; */
     width:100vw;
     height: 84%;
     /* bottom: 0px; */
     position: absolute;
+}
+
+#projects h3{
+    color:black;
+    text-shadow: 1px 1px 2px rgb(51, 168, 218);
+    transition: 0.5s;
+    height: 10%;
+    /* font-size: 3vw; */
 }
 
 .project{
@@ -240,9 +245,9 @@ nav div *{
     position: relative;
 }
 
-.project div {
+.project .projContents {
     color: rgba(0, 0, 0, 0);
-    transition: 0.5s;
+    /* transition: 0.5s; */
     font-size: 0px;
     margin-bottom: 10px;
     /* position: absolute;
@@ -250,18 +255,22 @@ nav div *{
     left: 50%;
     transform: translateX(-50%); */
     width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;    
 }
 
-.project div div{
+.project div .projScreenshot{
     overflow: hidden;
     border: 1px solid rgb(51, 168, 218);
 }
 
-.project div p{
-    margin-bottom: 5px;
+.project div .projText p{
+    margin-top: 5px;
 }
 
-.project div p:last-child{
+.project div div p:last-child{
     text-align: right;
 }
 
@@ -272,10 +281,13 @@ nav div *{
     padding-left:25px;
 }
 
-.project div div img {
+.project div .projScreenshot img {
     display: block;
     margin:auto;
     height: 80vh;
+    transition: 0.5s;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
 }
 
 .projCarousel:hover > .project:hover div{
@@ -283,12 +295,17 @@ nav div *{
     font-size: 1em;
 }
 
-.projCarousel:hover > .project:hover div div{
-    height: 36vh;
+.projCarousel:hover > .project:hover div .projScreenshot img{
+    opacity: 1;
+    filter: alpha(opacity=100);
 }
 
-.projCarousel:hover > .project:not(:hover) div div{
+.projCarousel:hover > .project:not(:hover) div .projScreenshot{
     display: none;
+}
+
+.projText{
+    height: 30%;
 }
 
 @media screen and (orientation:landscape){
@@ -297,10 +314,11 @@ nav div *{
     }
     .projCarousel{
         display: flex;
+        justify-content: space-between;
         height: 84%;
     }
     .project {
-        width: 33.333333333%;
+        width: 33.4%;
         height: 100%;
         display: inline-block;
     }
@@ -316,6 +334,7 @@ nav div *{
     .projCarousel:hover > .project:hover div div         img{
         max-width: 100%;
         height: unset;
+
     }
 }
 
@@ -343,6 +362,7 @@ nav div *{
         max-height: 100%;
     }
 }
+
 #swordbuilder{
     background-image: url("../images/sword-bg.png")
 }
@@ -355,6 +375,36 @@ nav div *{
 }
 
 /* experience */
+
+#experience .expWrap ul li{
+    margin-left: 30px;
+}
+
+#experience h5{
+    color: black;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+#experience h3{
+    text-align: left;
+}
+
+@media (min-width:900px){
+    #experience .expWrap{
+        display: flex;
+        justify-content: space-around;
+    }
+    #experience .workplace{
+        width: 30%;
+        display: inline-block;
+    }
+    #experience .workplace *{
+        display: block;
+    }
+}
+
+
 
 /* education */
 #education h3 {
