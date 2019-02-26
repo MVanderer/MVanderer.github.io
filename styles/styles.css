@@ -143,6 +143,7 @@ nav div *{
     top: 50%;
     left:50%;
     transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
     text-align: center;
 }
 
@@ -245,6 +246,21 @@ nav div *{
     position: relative;
 }
 
+.project::before {
+    content: "";
+    z-index: 3;
+    position: absolute;
+    width: 0.3em;
+    height: 0.3em;
+    border: solid black;
+    border-width: 0 0.7em 0.7em 0;
+    padding:0.7em;
+    bottom:50%;
+    left:50%;
+    transform: rotate(45deg) translateX(-50%) translateY(50%);
+    -webkit-transform: rotate(45deg) translateX(-50%) translateY(50%);
+}
+
 .project .projContents {
     color: rgba(0, 0, 0, 0);
     /* transition: 0.5s; */
@@ -325,8 +341,15 @@ nav div *{
     .projCarousel:hover > .project:not(:hover){
         width: 12.5%;
     }
+
+    .projCarousel:hover > .project:not(:hover)::before{
+        border:solid red;
+        bottom: 9%;
+    }
     .projCarousel:hover > .project:not(:hover) h3{
-        transform: rotate(90deg) translateX(50%)
+        display: flex;
+        transform: rotate(90deg) translateX(50%);
+        -webkit-transform: rotate(90deg) translateX(50%);
     }
     .projCarousel:hover>.project:hover{
         width: 75%;
