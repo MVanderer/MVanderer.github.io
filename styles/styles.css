@@ -67,7 +67,6 @@ section{
 }
 
 h2{
-    padding-top:10%;
     font-size: 2em;
 }
 
@@ -82,7 +81,7 @@ h2{
     border: 2px solid rgb(51, 168, 218);
     bottom:10px;
     right:10px;
-    z-index: 5;
+    z-index: 6;
 }
 #navbtn img{
     width:40px;
@@ -104,7 +103,7 @@ nav *:hover{
 
 nav{
     position: fixed;
-    z-index: 2;
+    z-index: 5;
     right:-30px;
     bottom:30px;
     width: 0px;
@@ -234,7 +233,7 @@ nav div *{
     color:black;
     text-shadow: 1px 1px 2px rgb(51, 168, 218);
     transition: 0.5s;
-    height: 10%;
+    /* height: 10%; */
     /* font-size: 3vw; */
 }
 
@@ -253,23 +252,63 @@ nav div *{
     width: 0.3em;
     height: 0.3em;
     border: solid black;
-    border-width: 0 0.7em 0.7em 0;
-    padding:0.7em;
+    border-width: 0 1.5vh 1.5vh 0;
+    padding:1.5vh;
     bottom:50%;
     left:50%;
-    transform: rotate(45deg) translateX(-50%) translateY(50%);
-    -webkit-transform: rotate(45deg) translateX(-50%) translateY(50%);
+    transition: 0.5s;
+    transform: rotate(45deg) translateX(-48.5%) translateY(48.5%);
+    -webkit-transform: rotate(45deg) translateX(-48.5%) translateY(48.5%);
+
+    -webkit-animation: smallBounce 0.7s infinite;
+    -moz-animation:    smallBounce 0.7s infinite;
+    -o-animation:      smallBounce 0.7s infinite;
+    animation:         smallBounce 0.7s infinite;
+}
+
+/* @-webkit-keyframes smallBounce {
+    0%   { 
+        transform: rotate(45deg) translateX(0px) translateY(0px); 
+    }
+    50% { 
+        transform: rotate(45deg) translateX(-30px) translateY(-30px); 
+    }
+    100%   {
+        transform:rotate(45deg) translateX(0px) translateY(0px); 
+    }
+}
+@-moz-keyframes smallBounce {
+    0%   { 
+        transform: rotate(45deg) translateX(0px) translateY(0px); 
+    }
+    50% { 
+        transform: rotate(45deg) translateX(-30px) translateY(-30px); 
+    }
+    100%   {
+        transform:rotate(45deg) translateX(0px) translateY(0px); 
+    }
+}
+@-o-keyframes smallBounce {
+    0%   { 
+        transform: rotate(45deg) translateX(0px) translateY(0px); 
+    }
+    50% { 
+        transform: rotate(45deg) translateX(-30px) translateY(-30px); 
+    }
+    100%   {
+        transform:rotate(45deg) translateX(0px) translateY(0px); 
+    }
+} */
+@keyframes smallBounce {
+    0%     {transform: rotate(45deg) translateX(-40%) translateY(40%);}
+    50%    {transform: rotate(45deg) translateX(-30%) translateY(50%);}
+    100%   {transform: rotate(45deg) translateX(-40%) translateY(40%);}
 }
 
 .project .projContents {
     color: rgba(0, 0, 0, 0);
-    /* transition: 0.5s; */
     font-size: 0px;
     margin-bottom: 10px;
-    /* position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%); */
     width: 100%;
     height: 90%;
     display: flex;
@@ -288,13 +327,6 @@ nav div *{
 
 .project div div p:last-child{
     text-align: right;
-}
-
-.projCarousel .project:last-child{
-    padding-right:30px;
-}
-.projCarousel .project:first-child{
-    padding-left:25px;
 }
 
 .project div .projScreenshot img {
@@ -324,6 +356,21 @@ nav div *{
     height: 30%;
 }
 
+.projCarousel:hover > .project:not(:hover)::before{
+    animation: none;
+}
+
+.projCarousel:hover > .project:hover::before{
+    bottom:80%;
+}
+
+.projCarousel:hover > .project:hover::before{
+    -webkit-animation: glowBounce 0.7s infinite;
+    -moz-animation:    glowBounce 0.7s infinite;
+    -o-animation:      glowBounce 0.7s infinite;
+    animation:         glowBounce 0.7s infinite;
+}
+
 @media screen and (orientation:landscape){
     #projects h3{
         font-size: 3vw;
@@ -338,26 +385,63 @@ nav div *{
         height: 100%;
         display: inline-block;
     }
+
+    .project::before {
+        border-width: 0 1.5vw 1.5vw 0;
+        padding:1.5vw;
+    }
+
+    .projCarousel .project:last-child{
+        padding-right:30px;
+    }
+    .projCarousel .project:first-child{
+        padding-left:25px;
+    }
+
     .projCarousel:hover > .project:not(:hover){
         width: 12.5%;
     }
 
     .projCarousel:hover > .project:not(:hover)::before{
-        border:solid red;
+        border-width: 0 1vw 1vw 0;
+        padding:1vw;
+        transform: rotate(135deg) translateX(-50%) translateY(50%);
+        -webkit-transform: rotate(135deg) translateX(-50%) translateY(50%);
         bottom: 9%;
     }
+
     .projCarousel:hover > .project:not(:hover) h3{
         display: flex;
         transform: rotate(90deg) translateX(50%);
         -webkit-transform: rotate(90deg) translateX(50%);
     }
+
     .projCarousel:hover>.project:hover{
         width: 75%;
     }
+
     .projCarousel:hover > .project:hover div div         img{
         max-width: 100%;
         height: unset;
 
+    }
+
+    @keyframes glowBounce{
+        0%     {
+            transform: rotate(45deg) translateX(-40%) translateY(40%);
+                border: solid black;
+        border-width: 0 1.5vw 1.5vw 0;
+        }
+        50%    {
+            transform: rotate(45deg) translateX(-30%) translateY(50%);
+                border: solid red;
+        border-width: 0 1.5vw 1.5vw 0;
+        }
+        100%   {
+            transform: rotate(45deg) translateX(-40%) translateY(40%);
+                border: solid black;
+        border-width: 0 1.5vw 1.5vw 0;
+        }
     }
 }
 
@@ -374,6 +458,13 @@ nav div *{
         height: 33.333333333%;
         width: 100%;
         display: block;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .project::before {
+        border-width: 0 1.5vh 1.5vh 0;
+        padding:1.5vh;
     }
     .projCarousel:hover > .project:not(:hover){
         height: 12.5%;
@@ -383,6 +474,30 @@ nav div *{
     }
     .projCarousel:hover > .project:hover div div img{
         max-height: 100%;
+    }
+
+    .projCarousel:hover > .project:not(:hover)::before{
+        border-width: 0 1.5vh 1.5vh 0;
+        padding:1.5vh;
+        left: 87%;
+    }
+
+    @keyframes glowBounce{
+        0%     {
+            transform: rotate(45deg) translateX(-40%) translateY(40%);
+                border: solid black;
+        border-width: 0 1.5vh 1.5vh 0;
+        }
+        50%    {
+            transform: rotate(45deg) translateX(-30%) translateY(50%);
+                border: solid red;
+        border-width: 0 1.5vh 1.5vh 0;
+        }
+        100%   {
+            transform: rotate(45deg) translateX(-40%) translateY(40%);
+                border: solid black;
+        border-width: 0 1.5vh 1.5vh 0;
+        }
     }
 }
 
@@ -410,7 +525,12 @@ nav div *{
 }
 
 #experience h3{
+    margin-top:7px;
     text-align: left;
+}
+
+#experience h4 {
+    text-align: right;
 }
 
 @media (min-width:900px){

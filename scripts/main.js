@@ -1,7 +1,7 @@
 
 function goToBookmark(address) {
     let dir = document.getElementById(address);
-    dir.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+    dir.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
 }
 
 
